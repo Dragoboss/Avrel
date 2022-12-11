@@ -4,8 +4,6 @@ module.exports = {
             message.mentions.has(client.user.id) || 
             message.content.toLowerCase().substring(0,5) === "avrel") {
 
-            message.content = message.content.replace("@undefined", "");
-            message.content = message.content.replace("avrel", "");
             const answer = await functions.DialogflowQuery(client, message);
             const data = await functions.SpreadsheetGET(client);
             var rows;

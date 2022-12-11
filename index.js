@@ -57,8 +57,7 @@ function runBot(token) {
                 functions.Command(client, message, functions, set, MessageEmbed);
             }
             else if (message.cleanContent.length < 255) {
-
-                //@Drago here...
+                message.content = message.cleanContent.substring(8);
                 functions.DialogflowIntents(client, message, functions, set);
             }
         }
