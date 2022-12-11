@@ -65,11 +65,15 @@ module.exports = {
             process.env[`PROJECT_ID_${client.user.username.toUpperCase()}`],
             message.author.id.substring(0, 11)
         );
+        
+        var msg = message.cleanContent;
+        msg = msg.replace(/<[@#!&](.*?)>/g, "");
+        msg = msg.replace(/avrel/gi);
         const request = {
             session: sessionPath,
             queryInput: {
                 text: {
-                    text: message.cleanContent,
+                    text: msg,
                     languageCode: "en-US",
                 },
             },
